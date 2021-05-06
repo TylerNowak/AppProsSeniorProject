@@ -1,0 +1,21 @@
+:root {
+  /* VARIABLES */
+  /* grays, lightest to darkest */
+  --gray-six: #F2F2F2;
+  --gray-light: #D5E1E2;
+  --gray-four: #BDBDBD;
+  --gray-medium: #8D9596;
+  --gray-two: #4F4F4F;
+  --gray-dark: #475356;
+  /* Neutrals for text */
+  --black: #000000;
+  --white: #FFFFFF;
+  /* App Pros Theme Colors */
+  --blue: #07B9FF;
+  --blue-light: #6BEBFF;
+  --blue-dark: #0089CB;
+  --teal: #30D9C3;
+  --teal-light: #74FFF6;
+  --teal-dark: #00A793;
+}
+

@@ -1,0 +1,77 @@
+.overflow {
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
+  align-items: flex-end;
+  max-height: 60vh;
+  max-width: 635px;
+  grid-row: 1;
+}
+
+.text-message {
+  max-width: 35ch;
+  padding: .5em;
+  margin: .3em .6em;
+  border-radius: 2em;
+}
+
+.left-message {
+  background-color: var(--gray-light);
+  align-self: flex-start;
+}
+
+.right-message {
+  background-color: var(--blue);
+}
+
+.chat-form {
+  max-height: 100vh;
+}
+
+.text-window {
+  overflow: scroll;
+  display: grid;
+  grid-auto-rows: max-content;
+}
+
+.issue-create-content {
+  margin: 1em auto;
+  display: grid;
+  height: 30vh;
+  align-content: space-evenly;
+  border-radius: 5px;
+  padding-left: 1em;
+  max-width: max-content;
+  
+  & button {
+    max-width: max-content;
+  }
+}
+
+.hidden {
+  overflow: unset;
+  display: none;
+}
+
+.chat-content {
+  margin: auto;
+  max-width: 900px;
+  width: 80%;
+  min-width: min-content;
+}
+
+.chat-input-box {
+  margin: 1em;
+  width: max-content;
+  border-radius: 5px;
+
+}
+
+.chat-input-box form {
+  display: flex;
+  padding: 0.6em;
+}
+
+article {
+  margin: 0 .8em;
+}

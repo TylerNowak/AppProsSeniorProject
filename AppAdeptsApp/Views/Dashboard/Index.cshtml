@@ -1,0 +1,58 @@
+﻿@model AppAdeptsApp.Models.UserDashboard.Root
+@using AppAdeptsApp.Controllers
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Dashboard";
+}
+<head>
+    <link rel="stylesheet" href="~/dist/dashboard.css" />
+    <link rel="stylesheet" href="~/dist/site.css" />
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="nav">
+        <ul class="nav-list">
+            <li><a class="nav-button" asp-action="Back">Home</a></li>
+            <li><a class="nav-button" asp-action="Chat">Chat</a></li>
+            <li><a class="nav-button" asp-action="Submit">Create an Issue</a></li>
+        </ul>
+        <a class="nav-button logout" asp-action="Logout">Log Out</a>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="flex-item">
+        <div class="dashboard grid">
+            <h1 class="title">Dashboard</h1>
+            <div class="issue-list">
+                @foreach (var issue in Model.Issues)
+                {
+                    var jiraKey = ViewData["JiraKey"] as string;
+                    if ((issue.key.Substring(0, issue.key.IndexOf("-")).Length == jiraKey.Length) && (issue.key.Substring(0, jiraKey.Length) == jiraKey))
+                    {
+                        <div class="issue" onclick="showIssue(this)">
+                            <h4 class="issue-key">@issue.key</h4>
+                            <h4 class="issue-summary">@issue.fields.summary</h4>
+                            <h4 class="issue-description">@issue.fields.description</h4>
+                            <a class="edit-btn" asp-controller="Edit" asp-action="Index" asp-route-id="@issue.key"  onclick="edit(event)">Edit</a>
+                        </div>
+                    }
+                }
+            </div>
+            <a asp-action="Submit" class="create-issue-button">Create</a>
+        </div>
+    </div>
+
+    <!-- Issue Modal -->
+    <div class="modal">
+        <div class="modal-card">
+            <h3 class="modal-heading"></h3>
+            <div class="close-btn flex-item"><span class="material-icons">close</span></div>
+            <h4 class="modal-summary"></h4>
+            <p class="modal-description"></p>
+        </div>
+    </div>
+
+    <script src="~/dist/dashboard.js"></script>
+</body>
+

@@ -1,0 +1,134 @@
+.flex {
+    align-items: center;
+}
+
+.chat-content {
+    padding: 2rem;
+}
+
+.overflow {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  align-items: flex-end;
+  max-height: 50vh;
+  grid-row: 1;
+  height: 100vh;
+}
+
+    .overflow::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    .overflow::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .overflow::-webkit-scrollbar-thumb {
+        background: var(--light-gray);
+        border-radius: 1rem;
+    }
+
+.text-message {
+  max-width: 35ch;
+  padding: 0.5em;
+  margin: 0.3em 0.6em;
+  border-radius: 0.5em;
+}
+
+.left-message {
+  background-color: var(--gray-light);
+  align-self: flex-start;
+}
+
+.right-message {
+  background-color: var(--main-blue);
+  color: white;
+}
+
+.text-window {
+    display: grid;
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content;
+    border-radius: 15px;
+    max-width: 60ch;
+}
+
+.issue-create-content {
+  margin: 1em auto;
+  display: grid;
+  height: 30vh;
+  align-content: space-evenly;
+  border-radius: 5px;
+  padding-left: 1em;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.issue-create-content button {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.hidden {
+  overflow: unset;
+  display: none;
+}
+
+.chat-content {
+  margin: auto;
+  max-width: 60ch;
+  width: 50%;
+  height: auto;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.chat-input-box {
+    margin-top: 1rem;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 25px var(--light-gray);
+}
+
+.chat-input-box form {
+  display: flex;
+  padding: 0.6em;
+}
+
+.chat-input-box button {
+    margin-left: 1rem;
+    background-color: transparent;
+    border: 2px solid var(--main-blue);
+    color: var(--main-blue);
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+    transition: var(--btn-transition);
+}
+
+.chat-input-box button:hover {
+    color: white;
+    background-color: var(--main-blue);
+}
+
+    .chat-input-box input {
+        background-color: var(--gray-six);
+        transition: none;
+    }
+
+    .chat-input-box input:focus {
+        border: 2px solid var(--main-blue);
+    }
+
+@media all and (min-width: 768px) {
+    .centered-chat {
+
+      background-color: var(--white);
+    }
+    .chat-content {
+      box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.15);
+    }
+}

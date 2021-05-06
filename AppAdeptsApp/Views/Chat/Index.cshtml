@@ -1,0 +1,53 @@
+@model AppAdeptsApp.Models.Chat.Messages
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Live Chat";
+}
+<head>
+    <link rel="stylesheet" href="~/dist/chat.css">
+</head>
+
+<body class="flex">
+    <!-- Navbar -->
+    <div class="nav">
+        <ul class="nav-list">
+            <li><a class="nav-button" asp-action="Back">Home</a></li>
+            <li><a class="nav-button" asp-action="Chat">Chat</a></li>
+            <li><a class="nav-button" asp-action="Submit">Create an Issue</a></li>
+        </ul>
+        <a class="nav-button logout" asp-action="Logout">Log Out</a>
+    </div>
+
+    <div class="chat-content">
+        <h2>Chat</h2>
+        <article class="chat-form text-window">
+            <div class="overflow" id="chat-view">
+                @foreach (var message in Model.messages)
+                {
+                    @if (message.Contains("AppPros"))
+                    {
+                        <p class="text-message left-message">
+                            @message
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="text-message right-message">
+                            @message
+                        </p>
+                    }
+                }
+            </div>
+            <div class="small-shadow chat-input-box">
+                <form asp-controller="Chat" method="post" asp-action="SendChat" role="form">
+                    <input class="input-text" autocomplete="off" type="text" asp-for="TextField" placeholder="Type a message" name="TextField" />
+                    <button type="submit">
+                        Send
+                    </button>
+                </form>
+            </div>
+        </article>
+    </div>
+</body>
+
+<script src="~/dist/liveChat.js"></script>

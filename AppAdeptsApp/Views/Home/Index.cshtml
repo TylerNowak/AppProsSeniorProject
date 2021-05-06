@@ -1,0 +1,32 @@
+﻿
+@model Home
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Login";
+}
+<head>
+    <link rel="stylesheet" href="dist/login.css" />
+</head>
+<div class="login">
+    <img src="~/dist/svgs/big-swoop.svg" alt="fancy swoop" class="svg image-top"/>
+    <div class="heading">
+        <h1>Login</h1>
+        <h2>@Model.DayMessage()</h2>
+    </div>
+    <div class="round-box soft-shadow card form-card">
+        <span>Let's get to work.</span>
+        <form asp-controller="Home" method="post" asp-action="Login" role="form" class="card-form">
+            <div>
+                <input asp-for="Email" type="text" placeholder="Email" name="Email" autocomplete="email" required />
+            </div>
+            <div>
+                <input asp-for="Password" type="password" placeholder="Password" name="Password" autocomplete="current-password" required />
+            </div>
+            <button class="submit-btn" type="submit">Log in</button>
+        </form>
+    </div>
+    <img src="~/dist/svgs/small-swoop.svg" alt="small fancy swoop" class="svg image-bottom"/>
+</div>
+
+<script type="text/javascript" src="~/dist/site.js"></script>

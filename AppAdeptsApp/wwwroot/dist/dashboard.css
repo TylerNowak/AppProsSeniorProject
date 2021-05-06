@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--light-gray);
+}
+
+
+.flex-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.grid {
+    height: auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /*grid-gap: 1.25rem;*/
+}
+
+/*--- Dashboard styles ---*/
+.dashboard {
+    align-content: center;
+    row-gap: 1.25rem;
+}
+
+.title {
+    padding-left: 2rem;
+    grid-column: 1 / span 4;
+}
+
+.issue-list {
+    grid-column: 1 / span 4;
+    grid-template-rows: repeat(auto-fit, 60px);
+    display: grid;
+    row-gap: 0.75rem;
+    height: 50vh;
+    overflow: auto;
+}
+
+    .issue-list::-webkit-scrollbar {
+        
+    }
+
+.issue {
+    border-radius: 10px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: min-content 4fr 8fr 1fr; 
+    padding: 1rem;
+    grid-gap: 1rem;
+    transition: box-shadow 250ms ease-in-out;
+    margin: 0 2rem;
+}
+
+    .issue:hover {
+        cursor: pointer;
+        box-shadow: -5px 5px 10px rgba(220,220,220,0.75);
+    }
+
+    .issue h4 {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        align-self: center;
+    }
+
+.edit-btn {
+    padding: 4px;
+    justify-self: end;
+    color: lightgray;
+    transition: var(--hover-transition);
+}
+
+.edit-btn:hover {
+    color: var(--main-blue);
+}
+
+.create-issue-button {
+    border: 2px solid var(--main-blue);
+    color: var(--main-blue);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem;
+    transition: var(--btn-transition);
+    grid-column: 2 / span 2;
+}
+
+.create-issue-button:hover {
+    color: white;
+    background-color: var(--main-blue);
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    justify-content:center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+}
+
+.modal-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    display: grid;
+    row-gap: 1rem;
+    width: 100%;
+    max-width: 80ch;
+    margin: 0 40px;
+}
+
+.modal-heading {
+    grid-row: 1;
+    align-self: center;
+}
+
+.close-btn {
+    height: 2rem;
+    width: 2rem;
+    border-radius: .33rem;
+    background-color: rgba(220,220,220,0.5);
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    transition: background-color 250ms ease-in-out;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    background-color: rgba(220,220,220,1);
+}
+
+.close-btn span:hover {
+    cursor: pointer;
+}
+
+.modal-summary {
+    grid-row: 2;
+}
+
+.modal-description {
+    grid-row: 3;
+}
+
+.show-modal {
+    display: flex;
+}
+
+@media (min-width: 481px) {
+    .grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .title {
+        grid-column: 2 / span 3;
+    }
+
+    .issue-list {
+        grid-column: 2 / span 6;
+    }
+
+    .create-issue-button {
+        grid-column: 4 / span 2;
+    }
+}
+
+@media (min-width: 769px) {
+    
+}
+
+@media (min-width: 1025px) {
+    .grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .title {
+        grid-column: 2 / span 2;
+    }
+
+    .issue-list {
+        grid-column: 2 / span 10;
+    }
+
+    .create-issue-button {
+        grid-column: 6 / span 2;
+    }
+}

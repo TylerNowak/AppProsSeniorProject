@@ -1,0 +1,45 @@
+﻿@using AppAdeptsApp.Controllers
+@model AppAdeptsApp.Models.Edit
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditView</title>
+    <link rel="stylesheet" href="~/dist/formPage.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body class="flex">
+
+    <!-- Navbar -->
+    <div class="nav">
+        <ul class="nav-list">
+            <li><a class="nav-button" asp-action="Back">Home</a></li>
+            <li><a class="nav-button" asp-action="Chat">Chat</a></li>
+            <li><a class="nav-button" asp-action="Submit">Create an Issue</a></li>
+        </ul>
+        <a class="nav-button logout" asp-action="Logout">Log Out</a>
+    </div>
+
+    <div class="form-container">
+        <form class="form-card" asp-controller="Edit" method="post" asp-action="EditIssue" class="form-card" role="form" id="issue" enctype="multipart/form-data">
+            <h2>Edit Issue: @Model.IssueId</h2>
+            <div class="card-item">
+                <label asp-for="EditText">Summary</label>
+                <textarea rows="8" asp-for="EditText" name="EditText" id="EditText" class="description" required></textarea>
+            </div>
+            <div class="card-item">
+                <label asp-for="AttachmentField">Attach an Image:</label>
+                <input type="file" asp-for="AttachmentField" placeholder="AttachFile" name="AttachmentField" id="AttachmentField" class="attachment" />
+            </div>
+            <button type="submit" class="submit-btn">
+                <h4>Submit</h4>
+            </button>
+        </form>
+    </div>
+</body>
+</html>

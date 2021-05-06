@@ -1,0 +1,262 @@
+@import url(https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital@0%3b1&&display=swap);@import url(https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400%3b0,700%3b1,400%3b1,700&display=swap);/*imports our fonts from the Goog */
+
+:root {
+    --main-blue: #07B9FF;
+    --red: #E58B8B;
+    --light-gray: rgba(220,220,220,1);
+    --light-gray-faded: rgba(220,220,220,0.5);
+    --btn-transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+    --hover-transition: color 250ms ease-in-out;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+  font-family: "Karla", "Helvetica", "Arial", "sans-serif";
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+h1,
+h2,
+h3 {
+  /* boy, Fira is hard to match with web-safe fonts... */
+  font-family: "Fira Sans Condensed", "Arial", "sans-serif";
+}
+
+a {
+    text-decoration: none;
+    color: var(--gray-medium);
+    font-weight: 600;
+    transition: var(--hover-transition);
+}
+
+    a:hover {
+        cursor: pointer;
+        color: var(--main-blue);
+    }
+
+body {
+  background: var(--gray-six);
+  color: var(--black);
+  margin: 0;
+}
+
+/* UI Component Utility Classes */
+
+.soft-shadow {
+  box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.25);
+}
+
+.backdrop-shadow {
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.15);
+}
+
+.small-shadow {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
+}
+
+.round-box {
+  border-radius: 10px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.centered {
+  margin: auto;
+  max-width: 1200px;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.centered > div {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 900px;
+}
+
+/* Submit and Edit styles*/
+.flex {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    height: auto;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.25rem;
+}
+
+.form-card {
+    grid-column: 1 / span 4;
+    align-self: center;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: -10px 10px 50px 7.5px rgba(215, 215, 215, 0.33);
+    background-color: white;
+    display: grid;
+    grid-row-gap: 1.5rem;
+}
+
+.card-item label, input {
+    display: block;
+}
+
+.card-item input {
+    margin-top: 2px
+}
+
+.description {
+    border: var(--border-style);
+    border-radius: 5px;
+    width: 100%;
+    resize: none;
+    padding: .5rem;
+    transition: border 250ms ease-in-out;
+}
+
+    .description:focus {
+        border: 2px solid var(--grey-active);
+        outline: none;
+    }
+
+.submit-btn {
+    padding: 0.6rem;
+    width: 100%;
+    color: var(--main-blue);
+    background-color: transparent;
+    border: 2px solid var(--main-blue);
+    border-radius: 5px;
+    transition: var(--btn-transition);
+}
+
+    .submit-btn:hover {
+        background-color: var(--main-blue);
+        color: white;
+    }
+
+.back-btn {
+    top: 4rem;
+    position: absolute;
+    border: 2px solid var(--gray-medium);
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+    transition: var(--btn-transition);
+}
+
+.back-btn:hover {
+    color: white;
+    background-color: var(--gray-medium);
+}
+
+input[type=text] {
+    border: var(--border-style);
+    border-radius: 5px;
+    width: 100%;
+    padding: .5rem;
+    transition: border 250ms ease-in-out;
+}
+
+    input[type=text]:focus {
+        border: 2px solid var(--main-blue);
+        outline: none;
+    }
+
+/*--- Nav styles ---*/
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 7.5vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.nav-list {
+    justify-self: center;
+    display: flex;
+    list-style: none;
+    margin-left: 2rem;
+}
+
+.nav-button {
+    font-weight: 800;
+    margin-left: 3rem;
+}
+
+.logout {
+    margin-right: 5rem;
+}
+
+    .logout:hover {
+        color: var(--red);
+    }
+
+/*--- Scrollbar ---*/
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--light-gray);
+    border-radius: 1rem;
+}
+
+@media (min-width: 481px) {
+    .form-container {
+        padding: 0 50px;
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .form-card {
+        grid-column: 1 / span 8;
+    }
+}
+
+@media (min-width: 769px) {
+    .form-card {
+        grid-column: 2 / span 6;
+    }
+}
+
+@media (min-width: 1025px) {
+    .form-container {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .form-card {
+        grid-column: 4 / span 6;
+    }
+}

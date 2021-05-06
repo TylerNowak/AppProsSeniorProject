@@ -1,0 +1,120 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: karla;
+}
+
+:root {
+    --border-style: 2px solid var(--light-gray);
+}
+
+.flex {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    height: auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.25rem;
+}
+
+.form-card {
+    grid-column: 1 / span 4;
+    align-self: center;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: -10px 10px 50px 7.5px rgba(215, 215, 215, 0.33);
+    background-color: white;
+    display: grid;
+    grid-row-gap: 1.5rem;
+}
+
+.card-item label,input {
+    display: block;
+}
+
+.card-item label {
+    margin-bottom: 4px;
+    padding-left: 2px;
+    font-size: 18px;
+}
+
+input[type=text] {
+    border: var(--border-style);
+    border-radius: 5px;
+    width: 100%;
+    padding: .5rem;
+    transition: border 250ms ease-in-out;
+}
+
+    input[type=text]:focus {
+        border: 2px solid var(--main-blue);
+        outline: none;
+    }
+
+.description {
+    border: var(--border-style);
+    border-radius: 5px;
+    width: 100%;
+    resize: none;
+    padding: .5rem;
+    transition: border 250ms ease-in-out;
+}
+
+    .description:focus {
+        border: 2px solid var(--main-blue);
+        outline: none;
+    }
+
+.submit-btn {
+    appearance: none;
+    -webkit-appearance: none;
+
+    height: 2.75rem;
+    width: 100%;
+    color: var(--main-blue);
+    background-color: transparent;
+    border: 2px solid var(--main-blue);
+    border-radius: 5px;
+    transition: var(--btn-transition);
+}
+
+.submit-btn:hover {
+    background-color: var(--main-blue);
+    color: white;
+}
+
+@media (min-width: 481px) {
+    .form-container {
+        padding: 0 50px;
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .form-card {
+        grid-column: 1 / span 8;
+    }
+} 
+
+@media (min-width: 769px) {
+    .form-card {
+        grid-column: 2 / span 6;
+    }
+}
+
+@media (min-width: 1025px) {
+    .form-container {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .form-card {
+        grid-column: 4 / span 6;
+    }
+}

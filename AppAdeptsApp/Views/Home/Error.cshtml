@@ -1,0 +1,9 @@
+@model Error;
+@{
+    Layout = "_Layout";
+}
+
+<h1>Error</h1>
+<p>Shucks! Seems you ran into a problem we haven't fixed yet. Believe me, it won't stay like this.</p>
+<p>You'll probably be happier if you go back to the <a  asp-area="" asp-action="Index" asp-controller="Dashboard">Dashboard</a></p>
+@Model.ErrorMessage

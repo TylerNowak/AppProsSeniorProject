@@ -1,0 +1,99 @@
+﻿@model AppAdeptsApp.Models.Chat.Messages
+@{
+    Layout = "_Layout";
+}
+<head>
+    <link rel="stylesheet" href="~/dist/chat.css">
+</head>
+<div class="centered-chat">
+    <div class="chat-content">
+        <article class="chat-form text-window">
+            <div class="overflow">
+                @foreach (var message in Model.messages)
+                {
+                    @if (message.Contains("AppPros"))
+                    {
+                        <p class="text-message left-message">
+                            @message
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="text-message right-message">
+                            @message
+                        </p>
+                    }
+                }
+            </div>
+            <div class="small-shadow chat-input-box">
+                <form asp-controller="Chat" method="post" asp-action="SendChat" role="form">
+                    <input class="input-text" type="text" asp-for="TextField" placeholder="Type a message" name="TextField"/>
+                    <button class="mdc-button mdc-button--outlined" type="submit">
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">check</i>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </article>
+        <div class="nav">
+            <a class="mdc-button mdc-button--outlined" asp-action="Back">
+                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_back_ios_new</i>
+                <span>Back</span>
+            </a>
+            <a class="mdc-button mdc-button--outlined" asp-action="Logout">
+                <i class="material-icons mdc-button__icon" aria-hidden="true">logout</i>
+                <span>Log Out</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+const MDCTabBar = mdc.tabBar.MDCTabBar
+const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'))
+const baseTitle = document.title
+
+const toggleForm = form => {
+  const tabId = document.querySelector('.mdc-tab--active').id
+  if (form.classList.contains('text-window')) {
+    
+    // chat tab
+    if (tabId === 'showIssues') {
+      // we clicked the issues tab
+      form.classList.add('hidden')
+    } else {
+      document.title = `Chat ${baseTitle}`
+      form.classList.remove('hidden')
+    }
+  } else {
+    
+    // issues tab
+    if (tabId === 'showChat') {
+      // we clicked the chat tab
+      form.classList.add("hidden")
+    } else {
+      document.title = `Issues ${baseTitle}`
+      form.classList.remove("hidden")
+    }
+  }
+    return form
+};
+
+const toggleForms = () => document.querySelectorAll('.chat-form').forEach(toggleForm)
+
+toggleForms()
+document.querySelectorAll('.mdc-tab').forEach(tab => {
+  tab.addEventListener('click', toggleForms)
+})
+
+const overflow = document.querySelector('.overflow')
+overflow.scrollTop = overflow.scrollHeight - overflow.clientHeight
+})()
+</script>
+@* <p>@Model.TextField</p> *@
+<!-- poll > interval
+on that interval, app checks for new messages (async)
+if newMessages > refresh
+otherwise null
+reset timer -->

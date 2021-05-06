@@ -1,0 +1,59 @@
+﻿.card-body {
+    margin: 0 1em 1em 1em;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: space-around;
+}
+
+#nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+}
+
+.navbutton {
+    margin: 10px 25px 10px 25px;
+}
+
+#dashboard {
+    flex: 6;
+    display: flex;
+    justify-content: center;
+}
+
+#tasks {
+    height: 50vh;
+    width: 60vw;
+}
+
+.issue {
+    margin: 10px 0 10px 0;
+    padding: 10px;
+}
+
+.issue:hover {
+    cursor: pointer;
+}
+
+.editbutton {
+    float: right;
+    text-decoration: none;
+    color: lightcoral;
+    display: inline;
+}
+
+
+.title {
+    font-size: 48px;
+    margin-top: 10vh;
+}
+
+.subtitle {
+    font-size: 24px;
+    margin: 50px 0 25px 0;
+}
